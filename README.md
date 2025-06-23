@@ -1,9 +1,9 @@
 # 🏥 Federated NLP-Driven Medical Disease Classification with Explainable Transformer-Based Architectures
 
-![GitHub repo size](https://img.shields.io/github/repo-size/duanepm/Federated-Medical-Disease-Classification)
-![GitHub contributors](https://img.shields.io/github/contributors/duanepm/Federated-Medical-Disease-Classification)
-![GitHub last commit](https://img.shields.io/github/last-commit/duanepm/Federated-Medical-Disease-Classification)
-![License](https://img.shields.io/github/license/duanepm/Federated-Medical-Disease-Classification)
+![GitHub repo size](https://img.shields.io/github/repo-size/duanepm/Federated-NLP-Driven-Medical-Disease-Classification-with-Explainable-Transformer-Based-Architectures)
+![GitHub contributors](https://img.shields.io/github/contributors/duanepm/Federated-NLP-Driven-Medical-Disease-Classification-with-Explainable-Transformer-Based-Architectures)
+![GitHub last commit](https://img.shields.io/github/last-commit/duanepm/Federated-NLP-Driven-Medical-Disease-Classification-with-Explainable-Transformer-Based-Architectures)
+![License](https://img.shields.io/github/license/duanepm/Federated-NLP-Driven-Medical-Disease-Classification-with-Explainable-Transformer-Based-Architectures)
 
 ## 🚀 Overview
 
@@ -123,19 +123,17 @@ By combining NLP, decentralized learning, and model interpretability, this syste
   * Cough Severity
   * SpO2 (Oxygen Saturation)
 
-![SHAP Example](flask/static/shap_plot.png)
-
 ---
 
 ## 🌐 Web Application Screenshots
 
 ### 🔹 Upload Symptom Report
 
-![Web Interface](assets/web_app_screenshot.png)
+![Web Interface](assets/webapp_ui.png)
 
 ### 🔹 SHAP Explanation Output
 
-![SHAP Plot](flask/static/shap_plot.html)
+![SHAP](assets/shap.png)
 
 ---
 
