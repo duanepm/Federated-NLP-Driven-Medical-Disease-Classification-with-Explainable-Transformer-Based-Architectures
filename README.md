@@ -174,11 +174,6 @@ Source: [Patient Symptoms Image Dataset on Kaggle](https://www.kaggle.com/datase
 
 ---
 
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
----
 
 ## 🙌 Acknowledgments
 
