@@ -3,7 +3,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/duanepm/Federated-NLP-Driven-Medical-Disease-Classification-with-Explainable-Transformer-Based-Architectures)
 ![GitHub contributors](https://img.shields.io/github/contributors/duanepm/Federated-NLP-Driven-Medical-Disease-Classification-with-Explainable-Transformer-Based-Architectures)
 ![GitHub last commit](https://img.shields.io/github/last-commit/duanepm/Federated-NLP-Driven-Medical-Disease-Classification-with-Explainable-Transformer-Based-Architectures)
-![License](https://img.shields.io/github/license/duanepm/Federated-NLP-Driven-Medical-Disease-Classification-with-Explainable-Transformer-Based-Architectures)
 
 ## 🚀 Overview
 
