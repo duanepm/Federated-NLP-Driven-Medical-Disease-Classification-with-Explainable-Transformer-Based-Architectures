@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Report Diagnosis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h3 {
+            text-align: center;
+            color: #34495e;
+            margin: 0;
+        }
+
+        header {
+            background-color: #34495e;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input[type="file"] {
+            padding: 12px 15px;
+            font-size: 1rem;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="file"]:hover {
+            border-color: #1abc9c;
+        }
+
+        button {
+            background-color: #1abc9c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+
+        .prediction {
+            background-color: #eafaf1;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .prediction h2 {
+            color: #e74c3c;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .shap-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-preview-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #1abc9c;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            input[type="file"], button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Medical Symptoms Report Diagnosis System</h1>
+    </header>
+
+    <div class="container">
+        <h3>Upload Patient Symptoms Report for Diagnosis</h3>
+
+        <form action="/predict" method="POST" enctype="multipart/form-data" class="form-container">
+            <input type="file" name="image" accept="image/*" required id="imageUpload">
+            <div class="image-preview-container">
+                <img id="imagePreview" class="image-preview" />
+            </div>
+            <button type="submit">Upload and Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="prediction">
+            <h2>Predicted Disease: {{ prediction }}</h2>
+        </div>
+        {% endif %}
+
+        {% if shap_html %}
+        <div class="shap-container">
+            <h3>SHAP Explanation</h3>
+            <iframe src="{{ shap_html }}" width="100%" height="600px" style="border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);"></iframe>
+        </div>
+        {% endif %}        
+    </div>
+
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = e.target.result;
+                    preview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
